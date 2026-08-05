@@ -1,0 +1,22 @@
+{
+  "name": "termichat_ai_chatbot_",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "chatbot.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krishna5601-Cpu/Termichat_Ai_Chatbot_.git"
+  },
+  "keywords": [],
+  "author": "Krishna Singh Chauhan",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Krishna5601-Cpu/Termichat_Ai_Chatbot_/issues"
+  },
+  "homepage": "https://github.com/Krishna5601-Cpu/Termichat_Ai_Chatbot_#readme"
+}
