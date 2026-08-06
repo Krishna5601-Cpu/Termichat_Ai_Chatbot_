@@ -1,24 +1,30 @@
 {
-  "name": "termichat_ai_chatbot_",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "Termichat_Ai_Chatbot_",
+  "version": "2.0.0",
+  "description": "AI chatbot with persistent memory, tool calling, and swappable personalities — powered by Sharanga API",
+  "type": "module",
+  "main": "src/index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "chatbot.mjs"
+    "start": "node src/index.mjs",
+    "dev": "node --watch src/index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Krishna5601-Cpu/Termichat_Ai_Chatbot_.git"
   },
-  "keywords": [],
-  "author": "Krishna Singh Chauhan",
-  "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/Krishna5601-Cpu/Termichat_Ai_Chatbot_/issues"
   },
   "homepage": "https://github.com/Krishna5601-Cpu/Termichat_Ai_Chatbot_#readme",
+  "author": "Krishna Singh Chauhan",
+  "license": "ISC",
+  "keywords": [
+    "chatbot",
+    "ai",
+    "openai",
+    "terminal"
+  ],
   "dependencies": {
     "dotenv": "^17.4.2",
     "openai": "^7.4.0"
