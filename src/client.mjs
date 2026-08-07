@@ -14,4 +14,4 @@ export const client = new OpenAI({
   baseURL: "https://sharanga.cloud/api/public/v1",
 });
 
-export const MODEL = "sharanga-pro";
+export const MODEL = "sharanga";

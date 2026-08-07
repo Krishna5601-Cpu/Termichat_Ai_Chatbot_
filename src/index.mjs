@@ -123,7 +123,7 @@ async function chat(userInput) {
   session.save();
 }
 
-// ── REPL ────────────────────────────────────────────────
+// REPL
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -132,7 +132,7 @@ const rl = readline.createInterface({
 
 const HELP = `
 ╔══════════════════════════════════════════════════════╗
-║                AVAILABLE COMMANDS                     ║
+║                AVAILABLE COMMANDS                    ║
 ╠══════════════════════════════════════════════════════╣
 ║  /help            Show this help message             ║
 ║  /new             Start a new conversation           ║
@@ -323,5 +323,5 @@ rl.on("line", async (line) => {
 rl.on("close", () => {
   session.save();
   console.log("\n💾 Session saved. 👋 Goodbye!");
-  process.exit(0); 
+  process.exit(0);
 });
