@@ -1,6 +1,6 @@
 # 🤖 Termichat AI Chatbot
 
-A terminal-based AI chatbot with **persistent memory**, **tool calling**, and **swappable personalities** =>> powered by the [Sharanga API](https://sharanga.cloud).
+A terminal-based AI chatbot with **persistent memory**, **tool calling**, and **swappable personalities** => powered by the [Sharanga API](https://sharanga.cloud).
 
 ## ✨ Features
 
