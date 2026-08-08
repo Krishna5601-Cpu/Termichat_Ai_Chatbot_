@@ -146,18 +146,82 @@ const HELP = `
 ║  /exit            Exit the chatbot                   ║
 ╚══════════════════════════════════════════════════════╝
 `;
+// Pure ANSI Color Codes
+const c = {
+  reset: "\x1b[0m",
+  bold: "\x1b[1m",
+  dim: "\x1b[2m",
+  cyan: "\x1b[36m",
+  green: "\x1b[32m",
+  yellow: "\x1b[33m",
+  magenta: "\x1b[35m",
+  blue: "\x1b[34m",
+  brightWhite: "\x1b[97m",
+  gray: "\x1b[90m",
+};
+
+// Strips ANSI control characters to get true terminal display length
+function visibleLength(str = "") {
+  return str.replace(/\x1b\[[0-9;]*m/g, "").length;
+}
+
+// Truncates plain text to target length
+function truncateText(str = "", maxLength = 28) {
+  const text = String(str);
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength - 3) + "...";
+  }
+  return text;
+}
 
 function printBanner() {
-  const p = getPersonality(currentPersonality);
+  const p = getPersonality(currentPersonality) || {
+    name: "Default",
+    description: "Standard Assistant",
+  };
+
+  const width = 56; // Outer box width in characters
+  const contentWidth = width - 4; // Width available inside borders (excluding "║ " and " ║")
+
+  const border = (left, mid, right) =>
+    `${c.cyan}${left}${mid.repeat(width - 2)}${right}${c.reset}`;
+
+  // Centers or aligns content and calculates exact padding using visible characters
+  const formatLine = (content) => {
+    const visibleLen = visibleLength(content);
+    const paddingNeeded = Math.max(0, contentWidth - visibleLen);
+    return `${c.cyan}║${c.reset} ${content}${" ".repeat(paddingNeeded)} ${c.cyan}║${c.reset}`;
+  };
+
+  const formatRow = (label, value, valueColor = c.brightWhite) => {
+    const formattedLabel = `${c.dim}${label.padEnd(12, " ")}:${c.reset}`;
+    const truncatedVal = truncateText(value, contentWidth - 14);
+    const formattedValue = `${valueColor}${truncatedVal}${c.reset}`;
+    return formatLine(`${formattedLabel} ${formattedValue}`);
+  };
+
+  const uptimeSec = Math.floor(process.uptime ? process.uptime() : 0);
+  const uptimeStr = `${Math.floor(uptimeSec / 60)}m ${uptimeSec % 60}s`;
+
+  // Header line assembly
+  const title = `${c.bold}${c.magenta}🤖 Sharanga Chatbot v2.0${c.reset}`;
+  const status = `${c.green}● ONLINE${c.reset}`;
+  const headerContent = `${title} ${status}`;
+
+  // Footer line assembly
+  const footerContent = `${c.dim}Type${c.reset} ${c.yellow}/help${c.reset} ${c.dim}for commands |${c.reset} ${c.yellow}/exit${c.reset} ${c.dim}to quit${c.reset}`;
+
   console.log(`
-╔══════════════════════════════════════════════╗
-║     🤖 Sharanga Chatbot v2.0 — Ready!        ║
-╠══════════════════════════════════════════════╣
-║  Personality : ${p.name.padEnd(28)} ║
-║  Description : ${p.description.padEnd(28)} ║
-║  Session ID  : ${session.id.padEnd(28)} ║
-║  Type /help  : ${"for commands".padEnd(28)} ║
-╚══════════════════════════════════════════════╝
+${border("╔", "═", "╗")}
+${formatLine(headerContent)}
+${border("╠", "═", "╣")}
+${formatRow("Personality", p.name, c.yellow)}
+${formatRow("Description", p.description, c.gray)}
+${formatRow("Session ID", session?.id || "N/A", c.cyan)}
+${formatRow("Runtime", `Node ${process.version} (${uptimeStr})`, c.dim)}
+${border("╠", "═", "╣")}
+${formatLine(footerContent)}
+${border("╚", "═", "╝")}
 `);
 }
 
