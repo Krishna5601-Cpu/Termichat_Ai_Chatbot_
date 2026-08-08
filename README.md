@@ -1,6 +1,6 @@
 # 🤖 Termichat AI Chatbot
 
-A terminal-based AI chatbot with **persistent memory**, **tool calling**, and **swappable personalities** — powered by the [Sharanga API](https://sharanga.cloud).
+A terminal-based AI chatbot with **persistent memory**, **tool calling**, and **swappable personalities** =>> powered by the [Sharanga API](https://sharanga.cloud).
 
 ## ✨ Features
 
@@ -53,14 +53,14 @@ Switch with: `/persona pirate`
 
 The bot automatically calls these when needed:
 
-- **get_time** — Current date/time
-- **calculate** — Math expressions
-- **save_note** — Save persistent notes
-- **read_note** — Read saved notes
-- **list_notes** — List all notes
-- **delete_note** — Delete a note
-- **random** — Dice roll, coin flip, random number
-- **text_stats** — Word count, reading time, etc.
+- **get_time** => Current date/time
+- **calculate** => Math expressions
+- **save_note** => Save persistent notes
+- **read_note** => Read saved notes
+- **list_notes** => List all notes
+- **delete_note** => Delete a note
+- **random** => Dice roll, coin flip, random number
+- **text_stats** => Word count, reading time, etc.
 
 ## 💬 Commands
 
@@ -143,7 +143,3 @@ data/
 ├── conversations/    # Saved chat sessions (.json)
 └── notes/            # Saved notes (.md)
 ```
-
-## 📜 License
-
-MIT
