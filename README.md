@@ -11,6 +11,20 @@ A terminal-based AI chatbot with **persistent memory**, **tool calling**, and **
 | 🎭 **Personalities**     | 7 built-in personas. Switch instantly. Add your own easily.          |
 | 📡 **Streaming**         | Real-time token streaming for instant feedback.                      |
 
+## 📸 Screenshots
+
+### Chat in action
+
+![Chat demo](assets/chat-demo.png)
+
+### Tool calling
+
+![Tool calling demo](assets/tool-calling.png)
+
+### Switching personalities
+
+![Personas demo](assets/personas.png)
+
 ## 🚀 Quick Start
 
 ```bash
